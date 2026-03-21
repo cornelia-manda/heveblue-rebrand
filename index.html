@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornelia Manda | Project | HEVEBLUE Rebrand Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Reset & Typography */
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px; color: #333;
+            background-color: #E0E2DF; line-height: 1.6;
+        }
+
+        h1, h2, h3, a, th { font-family: "Playfair Display", serif; }
+
+        /* --- Link Reset --- */
+        a, a:visited, a:active {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; background-color: #E0E2DF; min-height: 100vh; }
+
+        /* Navigation Area */
+        header {
+            display: grid; grid-template-columns: 30% 70%;
+            align-items: center; background-color: #DDBDBE;
+            padding: 17px 60px; position: relative; z-index: 1000;
+        }
+
+        .logo { 
+            font-family: "Playfair Display", serif;
+            font-size: 1.5em; 
+            letter-spacing: 1px; 
+            color: #655C5B; 
+        }
+
+        nav ul { list-style: none; padding: 0; margin: 0; text-align: right; }
+        nav li { display: inline-block; margin-left: 40px; position: relative; vertical-align: middle; }
+        
+        nav a { 
+            color: #655C5B !important; 
+            font-size: 1.1em; 
+            display: inline-block; 
+            padding: 10px 0; 
+        }
+
+        nav a:hover { color: white !important; cursor: pointer; }
+        nav > ul > li:nth-child(3) > a { color: white !important; }
+
+        /* --- Dropdown Menu Styles --- */
+        .dropdown-content {
+            display: none; position: absolute; background-color: #DDBDBE;
+            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100; text-align: left; padding: 10px 0; top: 100%; left: 0; margin-top: -5px;
+        }
+
+        .dropdown-content li { display: block; margin: 0; }
+        .dropdown-content a { 
+            color: #655C5B !important; padding: 12px 20px; display: block; 
+            font-size: 1.1em; font-family: "Playfair Display", serif;
+        }
+        .dropdown-content a:hover { background-color: #E0E2DF; color: #816B6E !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- Hero Section --- */
+        .project-hero { padding: 60px 80px 20px 80px; background-color: white; border-bottom: 1px solid #DDBDBE; }
+        .back-button {
+            display: inline-block; padding: 10px 25px; background-color: #C99B9B;
+            color: white !important; font-weight: bold; margin-bottom: 30px;
+            font-family: "Playfair Display", serif;
+        }
+        .back-button:hover { background-color: #816B6E; transform: rotate(-2deg); }
+
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .hero-text h1 { font-size: 4em; color: #816B6E; margin: 0 0 15px 0; text-transform: uppercase; line-height: 1; }
+        .project-tags { margin-bottom: 20px; }
+        .project-tags span {
+            display: inline-block; padding: 5px 15px; background-color: #F5F5F5;
+            color: #C99B9B; font-weight: 900; font-size: 0.8em;
+            text-transform: uppercase; margin-right: 10px; border-radius: 20px;
+        }
+        .hero-meta { color: #655C5B; font-style: italic; margin-bottom: 20px; }
+
+        /* --- Carousel UI --- */
+        .carousel-container { 
+            position: relative;
+            width: 100%; 
+            background-color: #000; 
+            border: 8px solid white; 
+            box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1); 
+            overflow: hidden;
+        }
+
+        .hero-carousel { height: 500px; }
+        
+        /* Updated landscape shaping to requested 1050x590 ratio */
+        .proof-carousel { 
+            height: auto;
+            aspect-ratio: 1050 / 590; 
+        }
+
+        .slide-track { display: flex; height: 100%; transition: transform 0.5s ease; }
+        .slide { min-width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+
+        .prev, .next {
+            cursor: pointer; position: absolute; top: 50%; width: auto; margin-top: -22px;
+            padding: 12px; color: white; font-weight: bold; font-size: 20px;
+            transition: 0.6s ease; user-select: none;
+            background-color: rgba(101, 92, 91, 0.3); z-index: 10;
+        }
+        .next { right: 0; }
+        .prev:hover, .next:hover { background-color: #816B6E; }
+
+        /* --- Content Layout --- */
+        .content-section { padding: 80px 80px; display: grid; grid-template-columns: 200px 1fr; gap: 50px; }
+        .section-light { background-color: #E0E2DF; }
+        .section-white { background-color: white; }
+
+        .section-title h2 { color: #816B6E; font-size: 1.8em; margin: 0; text-transform: uppercase; border-left: 5px solid #C99B9B; padding-left: 20px; line-height: 1.2; }
+        
+        .section-body { display: grid; grid-template-columns: 40% 60%; gap: 40px; align-items: start; }
+        .text-col p { margin-bottom: 20px; color: #5D4F51; font-size: 1.1em; }
+        .text-col ul { padding-left: 20px; color: #5D4F51; }
+        .text-col li { margin-bottom: 10px; }
+
+        .proof-col { position: relative; }
+        .proof-caption {
+            display: block; margin-top: 15px; font-size: 0.85em;
+            color: #C99B9B; text-transform: uppercase; font-weight: bold; letter-spacing: 1px;
+        }
+
+        /* --- PDF Section --- */
+        .pdf-section { margin-top: 30px; display: flex; flex-direction: column; align-items: center; }
+        .pdf-preview { width: 100%; max-width: 900px; height: 600px; border: 5px solid white; box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.15); margin-bottom: 40px; }
+        .download-btn {
+            display: inline-block; padding: 12px 40px; background-color: transparent;
+            color: #816B6E !important; border: 2px solid #816B6E; text-decoration: none;
+            font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.2em; transition: all 0.3s ease;
+        }
+        .download-btn:hover { background-color: #816B6E; color: white !important; transform: rotate(-2deg); }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px; color: #655C5B; font-size: 0.9em; border-top: 1px solid #DDBDBE; }
+        .footer-table-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
+        .footer-table { border-collapse: collapse; text-align: left; }
+        .footer-table th { color: #816B6E; font-size: 1.1em; padding: 5px 10px 5px 0; vertical-align: middle; }
+        .footer-table th:not(:first-child) { padding-left: 30px; }
+        .footer-table td { padding: 5px 0; font-family: "Roboto", sans-serif; white-space: nowrap; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Cornelia Manda</div>
+            <nav>
+                <ul>
+                    <li><a href="https://cornelia-manda.github.io/home/">Home</a></li>
+                    <li><a href="https://cornelia-manda.github.io/portfolio/">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="https://cornelia-manda.github.io/projects/">Projects</a>
+                        <ul class="dropdown-content">
+                            <li><a href="https://cornelia-manda.github.io/videography/">Videography</a></li>
+                            <li><a href="#">Branding</a></li>
+                            <li><a href="#">Web and App</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://cornelia-manda.github.io/contact-aboutme/">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="project-hero">
+            <a href="https://cornelia-manda.github.io/projects/" class="back-button">← Back to Projects</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="project-tags"><span>Branding</span><span>GenAI Strategy</span></div>
+                    <h1>HEVEBLUE</h1>
+                    <p class="hero-meta">Visual Identity & Branding Campaign</p>
+                    <p>A strategic redesign of the K-Beauty brand HEVEBLUE, repositioning clinical products into an aspirational <strong>"Blinding Glow"</strong> superpower.</p>
+                </div>
+                <div class="carousel-container hero-carousel" id="carousel-hero">
+                    <div class="slide-track">
+                        <div class="slide"><img src="Heveblue-Still-1.png" alt="Hero 1"></div>
+                        <div class="slide"><img src="Heveblue-Still-2.png" alt="Hero 2"></div>
+                        <div class="slide"><img src="Heveblue-Still-3.png" alt="Hero 3"></div>
+                        <div class="slide"><img src="Heveblue-Still-4.png" alt="Hero 4"></div>
+                        <div class="slide"><img src="Heveblue-Still-5.png" alt="Hero 5"></div>
+                        <div class="slide"><img src="Heveblue-Still-6.png" alt="Hero 6"></div>
+                        <div class="slide"><img src="Heveblue-Still-7.png" alt="Hero 7"></div>
+                    </div>
+                    <a class="prev" onclick="moveSlide('carousel-hero', -1)">❮</a>
+                    <a class="next" onclick="moveSlide('carousel-hero', 1)">❯</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section section-light">
+            <div class="section-title"><h2>The Big Idea</h2></div>
+            <div class="section-body">
+                <div class="text-col">
+                    <p>The rebrand shifts the narrative from clinical problem-solving to unlocking confidence. Inspired by founder Oh Min-cho’s personal struggle with sensitive skin, HEVEBLUE is repositioned as a "Secret Weapon" for transformation.</p>
+                </div>
+                <div class="proof-col">
+                    <div class="carousel-container proof-carousel" id="carousel-a">
+                        <div class="slide-track">
+                            <div class="slide"><img src="h-a1.png" alt="Strategy Proof 1"></div>
+                            <div class="slide"><img src="h-a2.png" alt="Strategy Proof 2"></div>
+                            <div class="slide"><img src="h-a3.png" alt="Strategy Proof 3"></div>
+                        </div>
+                        <a class="prev" onclick="moveSlide('carousel-a', -1)">❮</a>
+                        <a class="next" onclick="moveSlide('carousel-a', 1)">❯</a>
+                    </div>
+                    <span class="proof-caption">Proof: Branding Strategy & Narrative</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section section-white">
+            <div class="section-title"><h2>Visual Identity</h2></div>
+            <div class="section-body">
+                <div class="text-col">
+                    <p>I designed a fluid, cursive "h" with a radiant sunburst to visualize the promise of breathtaking radiance.</p>
+                    <ul>
+                        <li><strong>Typography:</strong> Paired Contralto Big with Stroudley.</li>
+                        <li><strong>Color Palette:</strong> Dreamy pastels and radiant light.</li>
+                    </ul>
+                </div>
+                <div class="proof-col">
+                    <div class="carousel-container proof-carousel" id="carousel-b">
+                        <div class="slide-track">
+                            <div class="slide"><img src="H-b1.png" alt="Identity Proof 1"></div>
+                            <div class="slide"><img src="H-b2.png" alt="Identity Proof 2"></div>
+                            <div class="slide"><img src="H-b3.png" alt="Identity Proof 3"></div>
+                            <div class="slide"><img src="H-b4.png" alt="Identity Proof 4"></div>
+                            <div class="slide"><img src="H-b5.png" alt="Identity Proof 5"></div>
+                            <div class="slide"><img src="H-b6.png" alt="Identity Proof 6"></div>
+                            <div class="slide"><img src="H-b7.jpeg" alt="Identity Proof 7"></div>
+                            <div class="slide"><img src="H-b8.png" alt="Identity Proof 8"></div>
+                        </div>
+                        <a class="prev" onclick="moveSlide('carousel-b', -1)">❮</a>
+                        <a class="next" onclick="moveSlide('carousel-b', 1)">❯</a>
+                    </div>
+                    <span class="proof-caption">Proof: Logo UI & Typography Rationale</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section section-light">
+            <div class="section-title"><h2>Creative Process</h2></div>
+            <div class="section-body">
+                <div class="text-col">
+                    <p>Adhering to a GenAI-first methodology, over 50% of the project was created using AI tools. Using Adobe Firefly Pro and Photoshop, I generated custom imagery for a unique identity.</p>
+                </div>
+                <div class="proof-col">
+                    <div class="carousel-container proof-carousel" id="carousel-c">
+                        <div class="slide-track">
+                            <div class="slide"><img src="h-c1.png" alt="Process Proof 1"></div>
+                            <div class="slide"><img src="h-c2.png" alt="Process Proof 2"></div>
+                            <div class="slide"><img src="h-c3.png" alt="Process Proof 3"></div>
+                        </div>
+                        <a class="prev" onclick="moveSlide('carousel-c', -1)">❮</a>
+                        <a class="next" onclick="moveSlide('carousel-c', 1)">❯</a>
+                    </div>
+                    <span class="proof-caption">Proof: Adobe Firefly UI & Workflow</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section section-white">
+            <div class="section-title"><h2>Social Strategy</h2></div>
+            <div class="section-body">
+                <div class="text-col">
+                    <p>The strategy centers on radical inclusivity. By launching the #BlindingGlowChallenge, we use real customer progress for credibility.</p>
+                </div>
+                <div class="proof-col">
+                    <div class="carousel-container proof-carousel" id="carousel-d">
+                        <div class="slide-track">
+                            <div class="slide"><img src="h-d1.png" alt="Social Proof 1"></div>
+                            <div class="slide"><img src="h-d2.png" alt="Social Proof 2"></div>
+                            <div class="slide"><img src="h-d3.png" alt="Social Proof 3"></div>
+                        </div>
+                        <a class="prev" onclick="moveSlide('carousel-d', -1)">❮</a>
+                        <a class="next" onclick="moveSlide('carousel-d', 1)">❯</a>
+                    </div>
+                    <span class="proof-caption">Proof: Social Marketing Storyboards</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section section-light">
+            <div class="section-title"><h2>Full Project Pitch</h2></div>
+            <div class="section-body" style="grid-template-columns: 1fr;">
+                <div class="pdf-section">
+                    <iframe class="pdf-preview" src="Cornelia_Manda_Heveblue_Rebrand.pdf" type="application/pdf"></iframe>
+                    <a href="Cornelia_Manda_Heveblue_Rebrand.pdf" download class="download-btn">Download Full Pitch Deck (PDF)</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-table-wrapper">
+                <table class="footer-table">
+                    <tr>
+                        <th>Email:</th><td><a href="mailto:cmanda@uwaterloo.ca">cmanda@uwaterloo.ca</a></td>
+                        <th>School:</th><td><a href="https://uwaterloo.ca/stratford-school-of-interaction-design-and-business/global-business-and-digital-arts" target="_blank">University of Waterloo</a></td>
+                        <th>Location:</th><td>Kitchener-Waterloo, Ontario</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="copyright">&copy; 2026 Cornelia Manda. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const carouselStates = {};
+        function moveSlide(id, direction) {
+            if (!carouselStates[id]) carouselStates[id] = 0;
+            const container = document.getElementById(id);
+            const track = container.querySelector('.slide-track');
+            const totalSlides = track.children.length;
+            carouselStates[id] = (carouselStates[id] + direction + totalSlides) % totalSlides;
+            const offset = carouselStates[id] * -100;
+            track.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+</html>
