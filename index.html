@@ -102,9 +102,10 @@
         .section-title h2 { color: #816B6E; font-size: 2.2em; margin: 0; text-transform: uppercase; border-left: 5px solid #C99B9B; padding-left: 20px; line-height: 1; }
         
         .section-body { display: flex; flex-direction: column; width: 100%; }
-        .text-col { margin-bottom: 40px; max-width: 900px; }
+        .text-col { margin-bottom: 40px; max-width: 1050px; }
         .text-col p { margin-bottom: 20px; color: #5D4F51; font-size: 1.15em; }
-        .text-col ul { padding-left: 20px; color: #5D4F51; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .text-col ul { padding-left: 20px; color: #5D4F51; margin-bottom: 20px; }
+        .text-col li { margin-bottom: 10px; }
 
         .proof-col { width: 100%; display: flex; flex-direction: column; align-items: center; }
 
@@ -122,9 +123,19 @@
         }
         .watch-btn:hover { background-color: #816B6E; color: white !important; transform: rotate(-2deg); }
 
-        /* PDF Section */
+        /* Updated Image Preview for PDF Section */
         .pdf-section { margin-top: 30px; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .pdf-preview { width: 100%; max-width: 1050px; aspect-ratio: 1050 / 650; border: 5px solid white; box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.15); margin-bottom: 40px; }
+        .pitch-preview-img { 
+            width: 100%; 
+            max-width: 1050px; 
+            border: 8px solid white; 
+            box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.15); 
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .pitch-preview-img:hover { transform: scale(1.01); }
+
         .download-btn { 
             display: inline-block; padding: 12px 40px; background-color: transparent; 
             color: #816B6E !important; border: 2px solid #816B6E; text-decoration: none; 
@@ -201,6 +212,8 @@
                             <div class="slide"><img src="h-a1.png" alt="Strategy 1"></div>
                             <div class="slide"><img src="h-a2.png" alt="Strategy 2"></div>
                             <div class="slide"><img src="h-a3.png" alt="Strategy 3"></div>
+                            <div class="slide"><img src="h-a4.png" alt="Strategy 4"></div>
+
                         </div>
                         <a class="prev" onclick="moveSlide('carousel-a', -1)">❮</a>
                         <a class="next" onclick="moveSlide('carousel-a', 1)">❯</a>
@@ -242,7 +255,13 @@
             <div class="section-title"><h2>Creative Process</h2></div>
             <div class="section-body">
                 <div class="text-col">
-                    <p>Adhering to a GenAI-first methodology, over 50% of the project was created using AI tools. Using Adobe Firefly Pro and Photoshop, I generated custom imagery for a unique identity.</p>
+                    <p>This project utilized a GenAI-first methodology, where over 50% of the design was generated using advanced AI tools. By avoiding stock imagery, I maintained a unique and pure brand identity that reflects HEVEBLUE's ethereal aesthetic.</p>
+                    <ul>
+                        <li><strong>Asset Generation:</strong> Leveraged Adobe Firefly Pro for original image generation, video segments, and AI-generated audio soundscapes.</li>
+                        <li><strong>Image Refinement:</strong> Used Adobe Photoshop for technical touch-ups and finishing on the generated imagery.</li>
+                        <li><strong>Video Editing:</strong> Edited all AI-generated campaign footage using Adobe Premiere Pro for final social media delivery.</li>
+                        <li><strong>Layout:</strong> Integrated all components using Adobe Express for a cohesive pitch presentation.</li>
+                    </ul>
                 </div>
                 <div class="proof-col">
                     <div class="carousel-container proof-carousel" id="carousel-c">
@@ -250,6 +269,13 @@
                             <div class="slide"><img src="h-c1.png" alt="Process 1"></div>
                             <div class="slide"><img src="h-c2.png" alt="Process 2"></div>
                             <div class="slide"><img src="h-c3.png" alt="Process 3"></div>
+                            <div class="slide"><img src="h-c3.2.png" alt="Process 3.2"></div>
+                            <div class="slide"><img src="h-c4.png" alt="Process 4"></div>
+                            <div class="slide"><img src="h-c5.png" alt="Process 5"></div>
+                            <div class="slide"><img src="h-c6.png" alt="Process 6"></div>
+                            <div class="slide"><img src="h-c7.png" alt="Process 7"></div>
+                            <div class="slide"><img src="h-c8.png" alt="Process 8"></div>
+                            <div class="slide"><img src="h-c9.png" alt="Process 9"></div>
                         </div>
                         <a class="prev" onclick="moveSlide('carousel-c', -1)">❮</a>
                         <a class="next" onclick="moveSlide('carousel-c', 1)">❯</a>
@@ -300,8 +326,8 @@
             <div class="section-title"><h2>Full Project Pitch</h2></div>
             <div class="section-body">
                 <div class="pdf-section">
-                    <iframe class="pdf-preview" src="Cornelia_Manda_Heveblue_Rebrand.pdf" type="application/pdf"></iframe>
-                    <a href="Cornelia_Manda_Heveblue_Rebrand.pdf" download="Cornelia_Manda_Heveblue_Rebrand.pdf" type="application/pdf" target="_blank" class="download-btn">Download Full Pitch Deck (PDF)</a>
+                    <img src="pitch-deck-cover.jpg" alt="HEVEBLUE Pitch Deck Preview" class="pitch-preview-img" onclick="downloadAndOpen()">
+                    <a href="javascript:void(0)" onclick="downloadAndOpen()" class="download-btn">Download & Open Full Pitch Deck (PDF)</a>
                 </div>
             </div>
         </section>
@@ -322,6 +348,7 @@
 
     <script>
         const carouselStates = {};
+
         function moveSlide(id, direction) {
             if (!carouselStates[id]) carouselStates[id] = 0;
             const container = document.getElementById(id);
@@ -330,6 +357,17 @@
             carouselStates[id] = (carouselStates[id] + direction + totalSlides) % totalSlides;
             const offset = carouselStates[id] * -100;
             track.style.transform = `translateX(${offset}%)`;
+        }
+
+        function downloadAndOpen() {
+            const pdfUrl = 'Cornelia_Manda_Heveblue_Rebrand.pdf';
+            window.open(pdfUrl, '_blank');
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = 'Cornelia_Manda_Heveblue_Rebrand.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 </body>
