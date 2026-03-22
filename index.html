@@ -65,19 +65,34 @@
         }
         .back-button:hover { background-color: #816B6E; transform: rotate(-2deg); }
 
-        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .hero-text h1 { font-size: 4em; color: #816B6E; margin: 0 0 15px 0; text-transform: uppercase; line-height: 1; }
         .project-tags { margin-bottom: 20px; }
         .project-tags span { display: inline-block; padding: 5px 15px; background-color: #F5F5F5; color: #C99B9B; font-weight: 900; font-size: 0.8em; text-transform: uppercase; margin-right: 10px; border-radius: 20px; }
         .hero-meta { color: #655C5B; font-style: italic; margin-bottom: 20px; font-weight: 500; font-size: 1.1em; }
 
-        /* Carousel UI */
+        /* Hero Image Cover Styling */
+        .hero-image-container {
+            width: 100%;
+            height: 500px;
+            border: 8px solid white;
+            box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1);
+            overflow: hidden;
+            background-color: #000;
+        }
+        .hero-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Carousel UI for Categories */
         .carousel-container { 
             position: relative; width: 100%; background-color: #000; 
             border: 8px solid white; box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1); 
             overflow: hidden; margin: 0 auto;
         }
-        .hero-carousel { height: 500px; }
         .proof-carousel { aspect-ratio: 1050 / 590; width: 100%; max-width: 1050px; }
 
         .slide-track { display: flex; height: 100%; transition: transform 0.5s ease; }
@@ -123,7 +138,7 @@
         }
         .watch-btn:hover { background-color: #816B6E; color: white !important; transform: rotate(-2deg); }
 
-        /* Updated Image Preview for PDF Section */
+        /* PDF Section Styling */
         .pdf-section { margin-top: 30px; display: flex; flex-direction: column; align-items: center; width: 100%; }
         .pitch-preview-img { 
             width: 100%; 
@@ -184,18 +199,8 @@
                     <p class="hero-meta">Sole Lead Designer / Brand Strategist / Creative Director / Social Media Strategist</p>
                     <p>A strategic redesign of the K-Beauty brand HEVEBLUE, repositioning clinical products into an aspirational <strong>"Blinding Glow"</strong> superpower.</p>
                 </div>
-                <div class="carousel-container hero-carousel" id="carousel-hero">
-                    <div class="slide-track">
-                        <div class="slide"><img src="Heveblue-Still-1.png" alt="Hero 1"></div>
-                        <div class="slide"><img src="Heveblue-Still-2.png" alt="Hero 2"></div>
-                        <div class="slide"><img src="Heveblue-Still-3.png" alt="Hero 3"></div>
-                        <div class="slide"><img src="Heveblue-Still-4.png" alt="Hero 4"></div>
-                        <div class="slide"><img src="Heveblue-Still-5.png" alt="Hero 5"></div>
-                        <div class="slide"><img src="Heveblue-Still-6.png" alt="Hero 6"></div>
-                        <div class="slide"><img src="Heveblue-Still-7.png" alt="Hero 7"></div>
-                    </div>
-                    <a class="prev" onclick="moveSlide('carousel-hero', -1)">❮</a>
-                    <a class="next" onclick="moveSlide('carousel-hero', 1)">❯</a>
+                <div class="hero-image-container">
+                    <img src="Heveblue.cover.png" alt="HEVEBLUE Rebrand Cover" class="hero-cover">
                 </div>
             </div>
         </section>
@@ -213,7 +218,6 @@
                             <div class="slide"><img src="h-a2.png" alt="Strategy 2"></div>
                             <div class="slide"><img src="h-a3.png" alt="Strategy 3"></div>
                             <div class="slide"><img src="h-a4.png" alt="Strategy 4"></div>
-
                         </div>
                         <a class="prev" onclick="moveSlide('carousel-a', -1)">❮</a>
                         <a class="next" onclick="moveSlide('carousel-a', 1)">❯</a>
@@ -238,7 +242,7 @@
                             <div class="slide"><img src="H-b1.png" alt="Identity 1"></div>
                             <div class="slide"><img src="H-b2.png" alt="Identity 2"></div>
                             <div class="slide"><img src="H-b3.png" alt="Identity 3"></div>
-                            <div class="slide"><img src="h-b3.2.png" alt="Identity 3"></div>
+                            <div class="slide"><img src="h-b3.2.png" alt="Identity 3.2"></div>
                             <div class="slide"><img src="H-b4.png" alt="Identity 4"></div>
                             <div class="slide"><img src="H-b5.png" alt="Identity 5"></div>
                             <div class="slide"><img src="H-b6.png" alt="Identity 6"></div>
@@ -256,12 +260,12 @@
             <div class="section-title"><h2>Creative Process</h2></div>
             <div class="section-body">
                 <div class="text-col">
-                    <p>This project utilized a GenAI-first methodology, where over 50% of the design was generated using advanced AI tools. By avoiding stock imagery, I maintained a unique and pure brand identity that reflects HEVEBLUE's ethereal aesthetic.</p>
+                    <p>This project utilized a <strong>GenAI-first methodology</strong>, where over 50% of the design was generated using advanced AI tools. By avoiding stock imagery, I maintained a unique and pure brand identity that reflects HEVEBLUE's ethereal aesthetic.</p>
                     <ul>
                         <li><strong>Asset Generation:</strong> Leveraged Adobe Firefly Pro for original image generation, video segments, and AI-generated audio soundscapes.</li>
                         <li><strong>Image Refinement:</strong> Used Adobe Photoshop for technical touch-ups and finishing on the generated imagery.</li>
-                        <li><strong>Video Editing:</strong> Edited all AI-generated campaign footage using Adobe Premiere Pro for final social media delivery.</li>
-                        <li><strong>Layout:</strong> Integrated all components using Adobe Express for a cohesive pitch presentation.</li>
+                        <li><strong>Video & Audio Editing:</strong> Edited all AI-generated campaign footage using Adobe Premiere Pro for final social media delivery.</li>
+                        <li><strong>Layout Design:</strong> Integrated all components using Adobe Express for a cohesive pitch presentation.</li>
                     </ul>
                 </div>
                 <div class="proof-col">
