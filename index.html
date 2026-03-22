@@ -125,7 +125,12 @@
         /* PDF Section */
         .pdf-section { margin-top: 30px; display: flex; flex-direction: column; align-items: center; width: 100%; }
         .pdf-preview { width: 100%; max-width: 1050px; aspect-ratio: 1050 / 650; border: 5px solid white; box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.15); margin-bottom: 40px; }
-        .download-btn { display: inline-block; padding: 12px 40px; background-color: transparent; color: #816B6E !important; border: 2px solid #816B6E; text-decoration: none; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.2em; transition: all 0.3s ease; }
+        .download-btn { 
+            display: inline-block; padding: 12px 40px; background-color: transparent; 
+            color: #816B6E !important; border: 2px solid #816B6E; text-decoration: none; 
+            font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.2em; 
+            transition: all 0.3s ease; 
+        }
         .download-btn:hover { background-color: #816B6E; color: white !important; transform: rotate(-2deg); }
 
         footer { text-align: center; padding: 40px; color: #655C5B; font-size: 0.9em; border-top: 1px solid #DDBDBE; }
@@ -296,7 +301,7 @@
             <div class="section-body">
                 <div class="pdf-section">
                     <iframe class="pdf-preview" src="Cornelia_Manda_Heveblue_Rebrand.pdf" type="application/pdf"></iframe>
-                    <a href="Cornelia_Manda_Heveblue_Rebrand.pdf" download class="download-btn">Download Full Pitch Deck (PDF)</a>
+                    <a href="Cornelia_Manda_Heveblue_Rebrand.pdf" download="Cornelia_Manda_Heveblue_Rebrand.pdf" type="application/pdf" target="_blank" class="download-btn">Download Full Pitch Deck (PDF)</a>
                 </div>
             </div>
         </section>
