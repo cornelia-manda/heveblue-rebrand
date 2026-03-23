@@ -44,6 +44,8 @@
         nav li { display: inline-block; margin-left: 40px; position: relative; vertical-align: middle; }
         nav a { color: #655C5B !important; font-size: 1.1em; display: inline-block; padding: 10px 0; }
         nav a:hover { color: white !important; cursor: pointer; }
+        
+        /* HIGHLIGHT: Main Projects Link */
         nav > ul > li:nth-child(3) > a { color: white !important; }
 
         .dropdown-content {
@@ -53,13 +55,16 @@
         }
         .dropdown-content li { display: block; margin: 0; }
         .dropdown-content a { color: #655C5B !important; padding: 12px 20px; display: block; font-size: 1.1em; font-family: "Playfair Display", serif; }
+        
+        /* HIGHLIGHT: Branding Link in Dropdown */
+        .dropdown-content li:nth-child(2) a { color: white !important; }
+
         .dropdown-content a:hover { background-color: #E0E2DF; color: #816B6E !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
         /* Hero Section */
         .project-hero { padding: 60px 80px 40px 80px; background-color: white; border-bottom: 1px solid #DDBDBE; }
         
-        /* Updated Back Button */
         .back-button {
             display: inline-block; padding: 10px 25px; background-color: #C99B9B;
             color: white !important; font-weight: bold; margin-bottom: 30px;
@@ -88,7 +93,7 @@
             display: block;
         }
 
-        /* Carousel UI for Categories */
+        /* Carousel UI */
         .carousel-container { 
             position: relative; width: 100%; background-color: #000; 
             border: 8px solid white; box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1); 
